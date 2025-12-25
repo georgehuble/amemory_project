@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="/logo.png" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <title>Страница памяти - Amemory</title>
+  </head>
+
+  <body class="bg-white preloading">
+    <!-- Preloader загружается динамически из /components/preloader.html -->
+    <script src="/utils/loadPreloader.js"></script>
+    <script>
+      // Загрузка preloader при загрузке страницы
+      loadPreloader('site-main');
+    </script>
+
+    <header id="site-header" class="fixed top-0 left-0 z-50 w-full">
+      <nav class="container mx-auto py-3 flex items-center justify-between">
+        <ul class="flex justify-between items-center lg:w-fit w-full">
+          <li>
+            <a href="/">
+              <figure class="w-[100px]">
+                <img
+                  class="w-full h-full"
+                  src="/health-doc-logo.png"
+                  alt="Logo Health Doc"
+                />
+              </figure>
+            </a>
+          </li>
+          <li class="relative w-10 lg:hidden">
+            <div class="trigger">
+              <svg class="bars hamburger-bars" viewBox="0 0 100 100">
+                <path
+                  class="line top"
+                  d="m 30,33 h 40 c 13.100415,0 14.380204,31.80258 6.899646,33.421777 -24.612039,5.327373 9.016154,-52.337577 -12.75751,-30.563913 l -28.284272,28.284272"
+                ></path>
+                <path
+                  class="line middle"
+                  d="m 70,50 c 0,0 -32.213436,0 -40,0 -7.786564,0 -6.428571,-4.640244 -6.428571,-8.571429 0,-5.895471 6.073743,-11.783399 12.286435,-5.570707 6.212692,6.212692 28.284272,28.284272 28.284272,28.284272"
+                ></path>
+                <path
+                  class="line bottom"
+                  d="m 69.575405,67.073826 h -40 c -13.100415,0 -14.380204,-31.80258 -6.899646,-33.421777 24.612039,-5.327373 -9.016154,52.337577 12.75751,30.563913 l 28.284272,-28.284272"
+                ></path>
+              </svg>
+            </div>
+          </li>
+        </ul>
+        <ul class="items-center gap-[26px] lg:flex hidden">
+          <li>
+            <a class="text-secondarygrey font-medium" href="/about">О нас</a>
+          </li>
+          <li>
+            <a class="text-secondarygrey font-medium" href="/blog">Услуги</a>
+          </li>
+          <li>
+            <a class="text-secondarygrey font-medium" href="/testimonial">Пример страницы</a>
+          </li>
+          <li>
+            <a class="text-secondarygrey font-medium" href="/contact"
+              >Контакты</a
+            >
+          </li>
+        </ul>
+        <ul class="lg:flex hidden">
+          <li>
+            <a class="button btn-primary" href="">
+              <svg
+                class="icon-circle"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="8" cy="8" r="8" fill="white" />
+              </svg>
+              <span>Регистрация</span>
+            </a>
+          </li>
+        </ul>
+        <ul
+          class="lg:hidden flex flex-col absolute top-[58px] -left-[100%] duration-500 w-full h-screen bg-white mobileNav px-4"
+        >
+          <li>
+            <a class="text-secondarygrey font-medium" href="/about">О нас</a>
+          </li>
+          <li>
+            <a class="text-secondarygrey font-medium" href="/blog">Услуги</a>
+          </li>
+          <li>
+            <a class="text-secondarygrey font-medium" href="/contact"
+              >Контакты</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="site-main" class="bg-[#FAFAFA]">
+      <!-- Hero Section with Portrait and Name -->
+      <section
+        class="hero-memorial lg:mt-[104px] mt-[86px] relative bg-gradient-to-b from-white to-[#FAFAFA]"
+      >
+        <div class="container relative py-20">
+          <div
+            class="flex lg:flex-row flex-col items-center lg:items-start gap-12"
+          >
+            <!-- Left: Name and Dates -->
+            <div class="lg:w-1/2 flex flex-col gap-6 memorial-info opacity-0">
+              <h1
+                class="text-darkBlack xl:text-[72px] lg:text-[64px] md:text-[52px] text-[40px] font-bold leading-[1.1]"
+              >
+                Иван Петрович<br />
+                <span class="text-primary"
+                  >Сидоров
+                  <div class="inline-flex items-center gap-3">
+                    <svg
+                      width="32"
+                      height="42"
+                      viewBox="0 0 32 42"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="text-primary"
+                    >
+                      <rect x="13" width="6" height="42" fill="#8246FB" />
+                      <rect y="14" width="32" height="6" fill="#8246FB" />
+                    </svg></div
+                ></span>
+              </h1>
+              <div class="flex items-center gap-4">
+                <p class="text-primaryGrey text-[24px] font-medium">
+                  12.03.1922 - 08.02.2015
+                </p>
+              </div>
+
+              <!-- Navigation buttons - Desktop only -->
+              <div class="lg:flex hidden flex-wrap gap-3 mt-6 memorial-nav">
+                <a href="#biography" class="button btn-primary">Биография</a>
+                <a
+                  href="#letter"
+                  class="px-6 py-3 border border-tertiaryGrey rounded-full text-darkBlack hover:bg-white duration-300"
+                  >Письмо памяти</a
+                >
+                <a
+                  href="#photos"
+                  class="px-6 py-3 border border-tertiaryGrey rounded-full text-darkBlack hover:bg-white duration-300"
+                  >Фотоальбом</a
+                >
+                <a
+                  href="#location"
+                  class="px-6 py-3 border border-tertiaryGrey rounded-full text-darkBlack hover:bg-white duration-300"
+                  >Место захоронения</a
+                >
+                <a
+                  href="#qrcode"
+                  class="px-6 py-3 border border-tertiaryGrey rounded-full text-darkBlack hover:bg-white duration-300"
+                  >QR-код</a
+                >
+              </div>
+            </div>
+
+            <!-- Right: Portrait Photo -->
+            <div
+              class="lg:w-1/2 flex justify-center memorial-portrait opacity-0"
+            >
+              <div
+                class="relative rounded-[24px] overflow-hidden shadow-2xl max-w-[400px] w-full"
+              >
+                <img
+                  src="/vinayak.png"
+                  alt="Портрет"
+                  class="w-full h-auto object-cover"
+                />
+                <div
+                  class="absolute inset-0 bg-gradient-to-t from-darkBlack/30 to-transparent"
+                ></div>
+              </div>
+            </div>
+
+            <!-- Navigation buttons - Mobile only (after portrait) -->
+            <div class="lg:hidden flex flex-wrap gap-3 w-full memorial-nav-mobile">
+              <a href="#biography" class="button btn-primary">Биография</a>
+              <a
+                href="#letter"
+                class="px-6 py-3 border border-tertiaryGrey rounded-full text-darkBlack hover:bg-white duration-300"
+                >Письмо памяти</a
+              >
+              <a
+                href="#photos"
+                class="px-6 py-3 border border-tertiaryGrey rounded-full text-darkBlack hover:bg-white duration-300"
+                >Фотоальбом</a
+              >
+              <a
+                href="#location"
+                class="px-6 py-3 border border-tertiaryGrey rounded-full text-darkBlack hover:bg-white duration-300"
+                >Место захоронения</a
+              >
+              <a
+                href="#qrcode"
+                class="px-6 py-3 border border-tertiaryGrey rounded-full text-darkBlack hover:bg-white duration-300"
+                >QR-код</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Biography Section -->
+      <section id="biography" class="biography-section paddingSection bg-white">
+        <div class="container">
+          <div class="flex flex-col gap-8">
+            <div class="label-section">• Биография</div>
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+              <div class="flex flex-col gap-6 bio-text opacity-0">
+                <h2 class="title-section">О человеке</h2>
+                <div
+                  class="text-primaryGrey space-y-4 text-[18px] leading-relaxed"
+                >
+                  <p>
+                    Иван Петрович Сидоров родился 23 мая 1965 года в городе
+                    Москва. С детства проявлял интерес к науке и технологиям.
+                  </p>
+                  <p>
+                    Окончил Московский государственный университет по
+                    специальности "Физика". Работал в области квантовой
+                    механики, внёс значительный вклад в развитие современной
+                    науки.
+                  </p>
+                  <p>
+                    Был любящим мужем и отцом двоих детей. Увлекался музыкой,
+                    играл на фортепиано. Всегда был готов прийти на помощь
+                    друзьям и близким.
+                  </p>
+                  <p>
+                    Ушёл из жизни 21 августа 2019 года, оставив светлую память в
+                    сердцах родных и коллег.
+                  </p>
+                </div>
+              </div>
+              <div class="bio-image opacity-0">
+                <figure class="rounded-[24px] overflow-hidden shadow-xl">
+                  <img
+                    src="/cameron.png"
+                    alt="Фотография из жизни"
+                    class="w-full h-full object-cover"
+                  />
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Letter of Memory Section -->
+      <section id="letter" class="letter-section paddingSection bg-[#FAFAFA]">
+        <div class="container">
+          <div class="max-w-[900px] mx-auto flex flex-col gap-8">
+            <div class="label-section">• Письмо памяти</div>
+            <h2 class="title-section letter-title opacity-0">Слова памяти</h2>
+            <div
+              class="letter-content opacity-0 bg-white rounded-[24px] p-8 md:p-12 shadow-lg"
+            >
+              <div
+                class="text-primaryGrey text-[18px] leading-relaxed space-y-6"
+              >
+                <p class="text-darkBlack font-medium text-[20px]">
+                  Дорогие потомки,
+                </p>
+                <p>
+                  Жизнь — это невероятное путешествие, полное радости, испытаний
+                  и открытий. Каждый момент ценен, и важно ценить время,
+                  проведённое с близкими.
+                </p>
+                <p>
+                  Я благодарен за каждый день, прожитый на этой земле. За
+                  возможность любить, учиться и делиться знаниями с другими.
+                  Надеюсь, что мои труды помогли сделать мир немного лучше.
+                </p>
+                <p>
+                  Помните: никогда не переставайте мечтать, стремиться к знаниям
+                  и быть добрыми к окружающим. Это то, что действительно имеет
+                  значение.
+                </p>
+                <p class="text-darkBlack font-medium italic pt-6">
+                  С уважением и любовью,<br />
+                  Иван Петрович Сидоров
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Photo Album Section -->
+      <section id="photos" class="photos-section paddingSection bg-white">
+        <div
+          class="container flex md:flex-row flex-col md:items-end md:justify-between max-lg:gap-6"
+        >
+          <div class="flex flex-col gap-5 md:max-w-[56%]">
+            <div class="label-section">• Фотоальбом</div>
+            <h2 class="title-section photos-title opacity-0">
+              Памятные моменты
+            </h2>
+          </div>
+          <div class="slider-controlApproach flex items-center gap-4">
+            <button
+              class="p-[14px] rounded-full border border-[#C7CAD1] prev-photo !ring-0"
+            >
+              <svg
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.54199 10.8503L16.042 10.8503"
+                  stroke="#050810"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M8.58301 15.8707L3.54134 10.8507L8.58301 5.82983"
+                  stroke="#050810"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              class="p-[14px] rounded-full border border-[#C7CAD1] next-photo !ring-0"
+            >
+              <svg
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.458 10.3934H3.95801"
+                  stroke="#050810"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M11.417 5.37299L16.4587 10.393L11.417 15.4138"
+                  stroke="#050810"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="swiper photoSlider mt-10 container max-lg:!px-[1rem]">
+          <ul class="swiper-wrapper">
+            <li
+              class="swiper-slide flex flex-col border border-tertiaryGrey rounded-[24px] overflow-hidden"
+            >
+              <figure class="w-full">
+                <img
+                  class="w-full h-full object-cover"
+                  src="/vinayak.png"
+                  alt="Фото 1"
+                />
+              </figure>
+            </li>
+            <li
+              class="swiper-slide flex flex-col border border-tertiaryGrey rounded-[24px] overflow-hidden"
+            >
+              <figure class="w-full">
+                <img
+                  class="w-full h-full object-cover"
+                  src="/cameron.png"
+                  alt="Фото 2"
+                />
+              </figure>
+            </li>
+            <li
+              class="swiper-slide flex flex-col border border-tertiaryGrey rounded-[24px] overflow-hidden"
+            >
+              <figure class="w-full">
+                <img
+                  class="w-full h-full object-cover"
+                  src="/chelcia.png"
+                  alt="Фото 3"
+                />
+              </figure>
+            </li>
+            <li
+              class="swiper-slide flex flex-col border border-tertiaryGrey rounded-[24px] overflow-hidden"
+            >
+              <figure class="w-full">
+                <img
+                  class="w-full h-full object-cover"
+                  src="/angelina.png"
+                  alt="Фото 4"
+                />
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Video Section (Optional) -->
+      <section class="video-section paddingSection bg-[#FAFAFA]">
+        <div class="container">
+          <div class="max-w-[1000px] mx-auto flex flex-col gap-8">
+            <div class="label-section">• Видео памяти</div>
+            <h2 class="title-section video-title opacity-0">
+              Видео воспоминания
+            </h2>
+            <div
+              class="video-wrapper opacity-0 rounded-[24px] overflow-hidden shadow-xl bg-darkBlack lg:h-[400px] md:h-[300px] h-[240px]"
+            >
+              <div
+                class="w-full h-full flex items-center justify-center text-white"
+              >
+                <div class="text-center">
+                  <svg
+                    class="md:w-16 md:h-16 w-12 h-12 mx-auto mb-3 opacity-50"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"
+                    />
+                  </svg>
+                  <p class="text-primaryGrey md:text-base text-sm">
+                    Видео будет добавлено
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Location Section with Map -->
+      <section id="location" class="location-section paddingSection bg-white">
+        <div class="container">
+          <div class="flex flex-col gap-8">
+            <div class="label-section">• Место захоронения</div>
+            <h2 class="title-section location-title opacity-0">
+              Адрес захоронения
+            </h2>
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+              <div class="location-info opacity-0 flex flex-col gap-6">
+                <div
+                  class="bg-[#FAFAFA] rounded-[24px] p-8 border border-tertiaryGrey"
+                >
+                  <h3 class="text-[24px] font-semibold text-darkBlack mb-4">
+                    Москва, Россия
+                  </h3>
+                  <p class="text-primaryGrey text-[18px] leading-relaxed">
+                    Новодевичье кладбище<br />
+                    Лужнецкий проезд, 2<br />
+                    119048, Москва
+                  </p>
+                  <div class="mt-6 pt-6 border-t border-tertiaryGrey">
+                    <p class="text-primaryGrey text-[16px]">
+                      Участок: 12<br />
+                      Ряд: 8
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="location-map opacity-0">
+                <div
+                  class="rounded-[24px] overflow-hidden shadow-xl lg:h-[350px] md:h-[300px] h-[250px] bg-tertiaryGrey"
+                >
+                  <!-- Placeholder for Yandex Maps -->
+                  <div class="w-full h-full flex items-center justify-center">
+                    <div class="text-center px-4">
+                      <svg
+                        class="md:w-12 md:h-12 w-10 h-10 mx-auto mb-3 text-primaryGrey"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                        />
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                        />
+                      </svg>
+                      <p class="text-primaryGrey md:text-base text-sm">
+                        Яндекс Карты будут интегрированы
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QR Code Section -->
+      <section id="qrcode" class="qrcode-section paddingSection bg-[#FAFAFA]">
+        <div class="container">
+          <div
+            class="max-w-[800px] mx-auto flex flex-col items-center gap-8 text-center"
+          >
+            <div class="label-section">• QR-код страницы</div>
+            <div class="qr-animated-container">
+              <div class="qr-animated-inner">
+                <svg
+                  class="qr-code-svg"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      id="site-footer"
+      class="bg-darkBlack mx-[10px] rounded-[24px] pt-20 mb-[10px]"
+    >
+      <div class="container">
+        <ul
+          class="border-b border-primaryGrey pb-[60px] flex md:flex-row flex-col justify-between items-center max-lg:gap-10"
+        >
+          <li class="flex flex-col gap-5 lg:w-[39%]">
+            <h2 class="title-section text-white fade-up-footer footerContent">
+              Оставьте свой номер телефона
+            </h2>
+            <p class="text-primaryGrey fade-up-footer footerContent">
+              И мы свяжемся с вами в ближайшее время
+            </p>
+          </li>
+          <li class="flex flex-col gap-4 lg:w-[45%] w-full">
+            <label class="text-white footerContent" for="">Введите номер телефона</label>
+            <form
+              action=""
+              class="flex md:flex-row flex-col gap-3 items-center flex-grow footerContent"
+            >
+              <input
+                class="bg-transparent border border-primaryGrey md:py-[14px] py-[10px] px-[14px] rounded-full flex-grow text-white w-full"
+                type="email"
+                placeholder="Ваш номер"
+              />
+              <button type="submit" class="button btn-primary max-lg:w-full">
+                <span>Отправить</span>
+              </button>
+            </form>
+          </li>
+        </ul>
+        <div
+          class="md:pt-[60px] pt-[32px] flex md:flex-row flex-col justify-between items-center"
+        >
+          <div class="md:w-[27%] w-full h-full">
+            <ul class="flex flex-col gap-6">
+              <li class="flex gap-1 items-center footer-navigation">
+                <img src="/logo.png" alt="Logo HealthDoc" />
+                <h3 class="text-white text-[18px] font-bold">Amemory</h3>
+              </li>
+              <li class="text-primaryGrey footer-navigation">
+                Мы помогаем сохранить память о важном, 
+                предоставляя инновационные дизайнерские решения и передовые технологии
+              </li>
+            </ul>
+            <ul class="flex items-center gap-6 pt-6 footer-nav-wrapper">
+              <li class="w-fit footer-navigation">
+                <a href="" class="p-2 rounded-full bg-[#3A3E45] flex">
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.0002 1.81494C11.2002 1.81494 11.5002 1.81494 12.4002 1.81494C13.2002 1.81494 13.6002 2.01494 13.9002 2.11494C14.3002 2.31494 14.6002 2.41494 14.9002 2.71494C15.2002 3.01494 15.4002 3.31494 15.5002 3.71494C15.6002 4.01494 15.7002 4.41494 15.8002 5.21494C15.8002 6.11494 15.8002 6.31494 15.8002 8.61494C15.8002 10.9149 15.8002 11.1149 15.8002 12.0149C15.8002 12.8149 15.6002 13.2149 15.5002 13.5149C15.3002 13.9149 15.2002 14.2149 14.9002 14.5149C14.6002 14.8149 14.3002 15.0149 13.9002 15.1149C13.6002 15.2149 13.2002 15.3149 12.4002 15.4149C11.5002 15.4149 11.3002 15.4149 9.0002 15.4149C6.7002 15.4149 6.5002 15.4149 5.6002 15.4149C4.8002 15.4149 4.4002 15.2149 4.1002 15.1149C3.7002 14.9149 3.4002 14.8149 3.1002 14.5149C2.8002 14.2149 2.6002 13.9149 2.5002 13.5149C2.4002 13.2149 2.3002 12.8149 2.2002 12.0149C2.2002 11.1149 2.2002 10.9149 2.2002 8.61494C2.2002 6.31494 2.2002 6.11494 2.2002 5.21494C2.2002 4.41494 2.4002 4.01494 2.5002 3.71494C2.7002 3.31494 2.8002 3.01494 3.1002 2.71494C3.4002 2.41494 3.7002 2.21494 4.1002 2.11494C4.4002 2.01494 4.8002 1.91494 5.6002 1.81494C6.5002 1.81494 6.8002 1.81494 9.0002 1.81494ZM9.0002 0.314941C6.7002 0.314941 6.5002 0.314941 5.6002 0.314941C4.7002 0.314941 4.1002 0.514942 3.6002 0.714942C3.1002 0.914942 2.6002 1.21494 2.1002 1.71494C1.6002 2.21494 1.4002 2.61494 1.1002 3.21494C0.900196 3.71494 0.800195 4.31494 0.700195 5.21494C0.700195 6.11494 0.700195 6.41494 0.700195 8.61494C0.700195 10.9149 0.700195 11.1149 0.700195 12.0149C0.700195 12.9149 0.900196 13.5149 1.1002 14.0149C1.3002 14.5149 1.6002 15.0149 2.1002 15.5149C2.6002 16.0149 3.0002 16.2149 3.6002 16.5149C4.1002 16.7149 4.7002 16.8149 5.6002 16.9149C6.5002 16.9149 6.8002 16.9149 9.0002 16.9149C11.2002 16.9149 11.5002 16.9149 12.4002 16.9149C13.3002 16.9149 13.9002 16.7149 14.4002 16.5149C14.9002 16.3149 15.4002 16.0149 15.9002 15.5149C16.4002 15.0149 16.6002 14.6149 16.9002 14.0149C17.1002 13.5149 17.2002 12.9149 17.3002 12.0149C17.3002 11.1149 17.3002 10.8149 17.3002 8.61494C17.3002 6.41494 17.3002 6.11494 17.3002 5.21494C17.3002 4.31494 17.1002 3.71494 16.9002 3.21494C16.7002 2.71494 16.4002 2.21494 15.9002 1.71494C15.4002 1.21494 15.0002 1.01494 14.4002 0.714942C13.9002 0.514942 13.3002 0.414941 12.4002 0.314941C11.5002 0.314941 11.3002 0.314941 9.0002 0.314941Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M9.0002 4.31494C6.6002 4.31494 4.7002 6.21494 4.7002 8.61494C4.7002 11.0149 6.6002 12.9149 9.0002 12.9149C11.4002 12.9149 13.3002 11.0149 13.3002 8.61494C13.3002 6.21494 11.4002 4.31494 9.0002 4.31494ZM9.0002 11.4149C7.5002 11.4149 6.2002 10.2149 6.2002 8.61494C6.2002 7.11494 7.4002 5.81494 9.0002 5.81494C10.5002 5.81494 11.8002 7.01494 11.8002 8.61494C11.8002 10.1149 10.5002 11.4149 9.0002 11.4149Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M13.4002 5.21494C13.9525 5.21494 14.4002 4.76723 14.4002 4.21494C14.4002 3.66266 13.9525 3.21494 13.4002 3.21494C12.8479 3.21494 12.4002 3.66266 12.4002 4.21494C12.4002 4.76723 12.8479 5.21494 13.4002 5.21494Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li class="w-fit footer-navigation">
+                <a href="" class="p-2 rounded-full bg-[#3A3E45] flex">
+                  <svg
+                    width="16"
+                    height="17"
+                    viewBox="0 0 16 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3.60001 16.6152H0.199997V5.91523H3.60001V16.6152ZM1.9 4.41523C0.800002 4.41523 0 3.61523 0 2.51523C0 1.41523 0.900002 0.615234 1.9 0.615234C3 0.615234 3.8 1.41523 3.8 2.51523C3.8 3.61523 3 4.41523 1.9 4.41523ZM16 16.6152H12.6V10.8152C12.6 9.11524 11.9 8.61523 10.9 8.61523C9.89999 8.61523 8.89999 9.41523 8.89999 10.9152V16.6152H5.5V5.91523H8.7V7.41523C9 6.71523 10.2 5.61523 11.9 5.61523C13.8 5.61523 15.8 6.71523 15.8 10.0152V16.6152H16Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li class="w-fit footer-navigation">
+                <a href="" class="p-2 rounded-full bg-[#3A3E45] flex">
+                  <svg
+                    width="14"
+                    height="17"
+                    viewBox="0 0 14 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.552 7.32723C5.096 7.32723 4.736 7.72723 4.736 8.21523C4.736 8.70323 5.104 9.10323 5.552 9.10323C6.008 9.10323 6.368 8.70323 6.368 8.21523C6.376 7.72723 6.008 7.32723 5.552 7.32723ZM8.472 7.32723C8.016 7.32723 7.656 7.72723 7.656 8.21523C7.656 8.70323 8.024 9.10323 8.472 9.10323C8.928 9.10323 9.288 8.70323 9.288 8.21523C9.288 7.72723 8.928 7.32723 8.472 7.32723Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M12.36 0.615234H1.64C0.736 0.615234 0 1.35123 0 2.26323V13.0792C0 13.9912 0.736 14.7272 1.64 14.7272H10.712L10.288 13.2472L11.312 14.1992L12.28 15.0952L14 16.6152V2.26323C14 1.35123 13.264 0.615234 12.36 0.615234ZM9.272 11.0632C9.272 11.0632 8.984 10.7192 8.744 10.4152C9.792 10.1192 10.192 9.46323 10.192 9.46323C9.864 9.67923 9.552 9.83123 9.272 9.93523C8.872 10.1032 8.488 10.2152 8.112 10.2792C7.344 10.4232 6.64 10.3832 6.04 10.2712C5.584 10.1832 5.192 10.0552 4.864 9.92723C4.68 9.85523 4.48 9.76723 4.28 9.65523C4.256 9.63923 4.232 9.63123 4.208 9.61523C4.192 9.60723 4.184 9.59923 4.176 9.59123C4.032 9.51123 3.952 9.45523 3.952 9.45523C3.952 9.45523 4.336 10.0952 5.352 10.3992C5.112 10.7032 4.816 11.0632 4.816 11.0632C3.048 11.0072 2.376 9.84723 2.376 9.84723C2.376 7.27123 3.528 5.18323 3.528 5.18323C4.68 4.31923 5.776 4.34323 5.776 4.34323L5.856 4.43923C4.416 4.85523 3.752 5.48723 3.752 5.48723C3.752 5.48723 3.928 5.39123 4.224 5.25523C5.08 4.87923 5.76 4.77523 6.04 4.75123C6.088 4.74323 6.128 4.73523 6.176 4.73523C6.664 4.67123 7.216 4.65523 7.792 4.71923C8.552 4.80723 9.368 5.03123 10.2 5.48723C10.2 5.48723 9.568 4.88723 8.208 4.47123L8.32 4.34323C8.32 4.34323 9.416 4.31923 10.568 5.18323C10.568 5.18323 11.72 7.27123 11.72 9.84723C11.72 9.84723 11.04 11.0072 9.272 11.0632Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="lg:w-[46%] md:w-[60%] w-full h-full">
+            <ul class="flex items-center justify-between max-lg:flex-wrap">
+              <li class="group relative footer-navigation">
+                <a
+                  href="/about"
+                  class="text-primaryGrey group-hover:text-white duration-300"
+                  >О нас</a
+                >
+                <div
+                  class="line absolute -bottom-[8px] w-0 group-hover:w-full duration-300 h-[2px] bg-white left-0"
+                ></div>
+              </li>
+              <li class="group relative footer-navigation">
+                <a
+                  href="/testimonial"
+                  class="text-primaryGrey group-hover:text-white duration-300"
+                  >Пример страницы</a
+                >
+                <div
+                  class="line absolute -bottom-[8px] w-0 group-hover:w-full duration-300 h-[2px] bg-white left-0"
+                ></div>
+              </li>
+              <li class="group relative footer-navigation">
+                <a
+                  href="/blog"
+                  class="text-primaryGrey group-hover:text-white duration-300"
+                  >Услуги</a
+                >
+                <div
+                  class="line absolute -bottom-[8px] w-0 group-hover:w-full duration-300 h-[2px] bg-white left-0"
+                ></div>
+              </li>
+              <li class="group relative footer-navigation">
+                <a
+                  href="/contact"
+                  class="text-primaryGrey group-hover:text-white duration-300"
+                  >Контакты</a
+                >
+                <div
+                  class="line absolute -bottom-[8px] w-0 group-hover:w-full duration-300 h-[2px] bg-white left-0"
+                ></div>
+              </li>
+              <li class="group relative footer-navigation">
+                <a
+                  href="/download"
+                  class="text-primaryGrey group-hover:text-white duration-300"
+                  >Регистрация</a
+                >
+                <div
+                  class="line absolute -bottom-[8px] w-0 group-hover:w-full duration-300 h-[2px] bg-white left-0"
+                ></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <ul class="py-4 container mx-auto md:mt-[60px] pt-8 flex items-center">
+        <li>
+          <a href="https://selesta.me/" class="text-primaryGrey text-sm"
+            >© Selesta</a
+          >
+        </li>
+        <li class="pr-4 border-r border-r-primaryGrey ml-auto">
+          <a href="https://selesta.me/" class="text-primaryGrey text-sm"
+            >Правила использования</a
+          >
+        </li>
+        <li class="pl-4">
+          <a href="https://selesta.me/" class="text-primaryGrey text-sm"
+            >Политика конфиденциальности</a
+          >
+        </li>
+      </ul>
+    </footer>
+
+    <script type="module" src="./assets/main.js"></script>
+    <script type="module" src="./assets/testimonial.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+  </body>
+</html>

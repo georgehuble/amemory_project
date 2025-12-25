@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="/logo.png" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <title>Health Doc</title>
+  </head>
+
+  <body>
+    <header id="site-header" class="fixed top-0 left-0 z-50 w-full">
+      <nav class="container mx-auto py-3 flex items-center justify-between">
+        <ul class="flex justify-between items-center lg:w-fit w-full">
+          <li>
+            <a href="/">
+              <figure class="w-[100px]">
+                <img
+                  class="w-full h-full"
+                  src="/health-doc-logo.png"
+                  alt="Logo Health Doc"
+                />
+              </figure>
+            </a>
+          </li>
+          <li class="relative w-10 lg:hidden">
+            <div class="trigger">
+              <svg class="bars hamburger-bars" viewBox="0 0 100 100">
+                <path
+                  class="line top"
+                  d="m 30,33 h 40 c 13.100415,0 14.380204,31.80258 6.899646,33.421777 -24.612039,5.327373 9.016154,-52.337577 -12.75751,-30.563913 l -28.284272,28.284272"
+                ></path>
+                <path
+                  class="line middle"
+                  d="m 70,50 c 0,0 -32.213436,0 -40,0 -7.786564,0 -6.428571,-4.640244 -6.428571,-8.571429 0,-5.895471 6.073743,-11.783399 12.286435,-5.570707 6.212692,6.212692 28.284272,28.284272 28.284272,28.284272"
+                ></path>
+                <path
+                  class="line bottom"
+                  d="m 69.575405,67.073826 h -40 c -13.100415,0 -14.380204,-31.80258 -6.899646,-33.421777 24.612039,-5.327373 -9.016154,52.337577 12.75751,30.563913 l 28.284272,-28.284272"
+                ></path>
+              </svg>
+            </div>
+          </li>
+        </ul>
+        <ul class="items-center gap-[26px] lg:flex hidden">
+          <li>
+            <a class="text-secondarygrey font-medium" href="/about">About Us</a>
+          </li>
+          <li>
+            <a class="text-secondarygrey font-medium" href="/blog">Blog</a>
+          </li>
+          <li>
+            <a class="text-secondarygrey font-medium" href="contact">Contact</a>
+          </li>
+        </ul>
+        <ul class="lg:flex hidden">
+          <li>
+            <a class="button btn-primary" href="">
+              <svg
+                width="16"
+                height="19"
+                viewBox="0 0 16 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.3689 14.2874C15.0916 14.928 14.7634 15.5175 14.3832 16.0596C13.8649 16.7986 13.4405 17.3101 13.1135 17.5941C12.6065 18.0604 12.0633 18.2991 11.4816 18.3127C11.0641 18.3127 10.5605 18.1939 9.97427 17.9529C9.38616 17.713 8.84568 17.5941 8.35149 17.5941C7.83319 17.5941 7.27733 17.713 6.68276 17.9529C6.08728 18.1939 5.60757 18.3195 5.24081 18.332C4.68302 18.3557 4.12704 18.1102 3.57207 17.5941C3.21787 17.2852 2.77483 16.7556 2.24408 16.0053C1.67464 15.2041 1.20647 14.275 0.839703 13.2158C0.446907 12.0717 0.25 10.9638 0.25 9.89119C0.25 8.66256 0.515485 7.60288 1.04725 6.71487C1.46517 6.00159 2.02115 5.43893 2.717 5.02588C3.41285 4.61283 4.16472 4.40234 4.97442 4.38887C5.41746 4.38887 5.99845 4.52591 6.72044 4.79525C7.4404 5.06549 7.90268 5.20253 8.10535 5.20253C8.25688 5.20253 8.77042 5.04229 9.641 4.72282C10.4643 4.42656 11.1591 4.30388 11.7283 4.35221C13.2708 4.47669 14.4296 5.08472 15.2002 6.18016C13.8208 7.016 13.1384 8.1867 13.152 9.68851C13.1644 10.8583 13.5888 11.8318 14.4228 12.6047C14.8008 12.9634 15.2229 13.2407 15.6925 13.4376C15.5907 13.7329 15.4832 14.0158 15.3689 14.2874V14.2874ZM11.8313 0.366977C11.8313 1.28385 11.4963 2.13994 10.8287 2.93232C10.0229 3.87431 9.04836 4.41863 7.99151 4.33274C7.97804 4.22274 7.97023 4.10698 7.97023 3.98532C7.97023 3.10512 8.35341 2.16314 9.03387 1.39293C9.37359 1.00297 9.80566 0.678713 10.3296 0.420051C10.8524 0.165248 11.347 0.0243365 11.8121 0.000205994C11.8257 0.122778 11.8313 0.245358 11.8313 0.366965V0.366977Z"
+                  fill="white"
+                />
+              </svg>
+              <span>Download App</span>
+            </a>
+          </li>
+        </ul>
+        <ul
+          class="lg:hidden flex flex-col absolute top-[58px] -left-[100%] duration-500 w-full h-screen bg-white mobileNav px-4"
+        >
+          <li>
+            <a class="text-secondarygrey font-medium" href="/about">About Us</a>
+          </li>
+          <li>
+            <a class="text-secondarygrey font-medium" href="/blog">Blog</a>
+          </li>
+          <li>
+            <a class="text-secondarygrey font-medium" href="/contact"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main id="site-main">
+      <div
+        class="preload healthDoc w-screen h-screen fixed top-0 left-0 z-[99999999999999] bg-white"
+      >
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-fit h-fit logo-wrapper"
+        >
+          <div class="relative w-[300px] h-[300px]">
+            <svg
+              id="animatedSvg"
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0"
+              width="296"
+              height="296"
+              viewBox="0 0 296 296"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M148 4C129.538 4 114.571 18.9664 114.571 37.4286V67.2969L93.4509 46.1764C80.3963 33.1218 59.2305 33.1218 46.1758 46.1764C33.1211 59.2311 33.1211 80.3969 46.1758 93.4515L67.2956 114.571H37.4286C18.9665 114.571 4 129.538 4 148C4 166.462 18.9665 181.429 37.4286 181.429H67.2944L46.1749 202.548C33.1202 215.603 33.1202 236.768 46.1749 249.823C59.2296 262.878 80.3954 262.878 93.4501 249.823L114.571 228.702V258.571C114.571 277.033 129.538 292 148 292C166.462 292 181.429 277.033 181.429 258.571V228.704L202.547 249.823C215.602 262.878 236.768 262.878 249.823 249.823C262.877 236.769 262.877 215.603 249.823 202.548L228.703 181.429H258.571C277.033 181.429 292 166.462 292 148C292 129.538 277.034 114.571 258.571 114.571H228.702L249.822 93.4515C262.876 80.3969 262.876 59.2311 249.822 46.1764C236.767 33.1217 215.601 33.1217 202.546 46.1764L181.429 67.2943V37.4286C181.429 18.9665 166.462 4 148 4Z"
+                stroke="black"
+                stroke-width="7"
+              />
+            </svg>
+            <div
+              id="percentage"
+              style="
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 24px;
+                font-weight: bold;
+              "
+            >
+              0%
+            </div>
+          </div>
+          <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-darkBlack md:text-[80px] text-[40px] whitespace-nowrap opacity-0 textBranding"
+          >
+            HealthD<span class="text-transparent">cc</span>c
+          </div>
+        </div>
+      </div>
+      <img
+        class="w-screen h-screen absolute top-0 left-0 z-10 object-cover opacity-0 scale-50 patternHero"
+        src="/ornament-hero.png"
+        alt="ornament pattern hero"
+      />
+      <section class="hero-section lg:mt-[104px] mt-[86px] relative z-30">
+        <div
+          class="container relative flex flex-col justify-center items-center"
+        >
+          <div
+            class="absolute -top-[200px] left-[68%] -translate-x-1/2 lg:p-[18px] p-[15px] bg-white rounded-[15px] shadow-xl -rotate-[14deg] opacity-0 ornamentLogoSpin z-20"
+          >
+            <svg
+              class="animate-spin lg:w-[23px] w-[16px] lg:h-[23px] h-[16px]"
+              width="31"
+              height="31"
+              viewBox="0 0 31 31"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.41687 5.06406C8.9621 3.18931 10.1132 1.30086 11.988 0.846094V0.846094C13.8627 0.391323 15.7512 1.54244 16.2059 3.41719L21.6955 26.0474C22.1503 27.9222 20.9992 29.8106 19.1244 30.2654V30.2654C17.2497 30.7202 15.3612 29.569 14.9064 27.6943L9.41687 5.06406Z"
+                fill="#050810"
+              />
+              <path
+                d="M4.85875 21.5696C3.07546 22.0022 1.27913 20.9073 0.846541 19.124V19.124C0.413954 17.3407 1.50892 15.5443 3.29222 15.1117L26.2536 9.54184C28.0369 9.10925 29.8333 10.2042 30.2658 11.9875V11.9875C30.6984 13.7708 29.6035 15.5671 27.8202 15.9997L4.85875 21.5696Z"
+                fill="#050810"
+              />
+              <path
+                d="M3.72083 12.6698C2.03343 11.6982 1.50309 9.51194 2.55777 7.8752V7.8752C3.54044 6.35021 5.5463 5.86363 7.11849 6.76887L27.3916 18.4418C29.079 19.4134 29.6093 21.5996 28.5546 23.2364V23.2364C27.572 24.7614 25.5661 25.248 23.9939 24.3427L3.72083 12.6698Z"
+                fill="#050810"
+              />
+              <path
+                d="M19.03 3.87938C20.0126 2.35439 22.0185 1.86782 23.5907 2.77306V2.77306C25.2781 3.74463 25.8084 5.93092 24.7538 7.56766L12.0824 27.2321C11.0997 28.7571 9.09388 29.2437 7.52169 28.3384V28.3384C5.83429 27.3669 5.30395 25.1806 6.35863 23.5438L19.03 3.87938Z"
+                fill="#050810"
+              />
+            </svg>
+          </div>
+          <h1
+            class="text-darkBlack xl:text-[96px] lg:text-[72px] md:text-[60px] text-[44px] font-normal leading-[1] tracking-[-0.2px] xl:max-w-[1151px] w-full titleHero overflow-hidden"
+          >
+            A powerful virtual assistant with
+            <span class="text-primaryGrey">AI Powered</span>
+          </h1>
+          <div
+            class="absolute ornamentPlusTitle -bottom-[100px] opacity-0 left-[12%] -translate-x-1/2 lg:p-[18px] p-[15px] bg-white rounded-[15px] shadow-xl rotate-[16deg]"
+          >
+            <svg
+              class="animate-spin lg:w-[23px] w-[16px] lg:h-[23px] h-[16px]"
+              width="30"
+              height="30"
+              viewBox="0 0 30 30"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18.3389 3.67189L12.0934 26.1729"
+                stroke="#050810"
+                stroke-width="4"
+                stroke-linecap="round"
+              />
+              <path
+                d="M3.43262 12.1006L25.9336 18.3461"
+                stroke="#050810"
+                stroke-width="4"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="relative container phoneOrnament--wrapper opacity-0">
+          <figure
+            class="w-full h-full flex justify-center relative overflow-hidden"
+          >
+            <img
+              class="xl:max-w-[35%] lg:max-w-[40%] md:max-w-[52%] w-full object-contain"
+              src="/Phone.png"
+              alt="phone"
+            />
+          </figure>
+        </div>
+        <div
+          class="w-full backdrop-blur-[20px] duration-500 absolute -bottom-20 lg:py-10 py-6 border-y border-white opacity-0 bar_phone--wrapper"
+        >
+          <div
+            class="container mx-auto flex md:flex-row flex-col md::items-center max-lg:gap-4 md:justify-between"
+          >
+            <p
+              class="max-w-[417px] font-primary text-[16px] text-secondarygrey"
+            >
+              Collaborate with technology that transforms your aspirations into
+              exceptional results, seamlessly and effectively
+            </p>
+            <a class="button btn-primary w-fit" href="">
+              <svg
+                width="16"
+                height="19"
+                viewBox="0 0 16 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.3689 14.2874C15.0916 14.928 14.7634 15.5175 14.3832 16.0596C13.8649 16.7986 13.4405 17.3101 13.1135 17.5941C12.6065 18.0604 12.0633 18.2991 11.4816 18.3127C11.0641 18.3127 10.5605 18.1939 9.97427 17.9529C9.38616 17.713 8.84568 17.5941 8.35149 17.5941C7.83319 17.5941 7.27733 17.713 6.68276 17.9529C6.08728 18.1939 5.60757 18.3195 5.24081 18.332C4.68302 18.3557 4.12704 18.1102 3.57207 17.5941C3.21787 17.2852 2.77483 16.7556 2.24408 16.0053C1.67464 15.2041 1.20647 14.275 0.839703 13.2158C0.446907 12.0717 0.25 10.9638 0.25 9.89119C0.25 8.66256 0.515485 7.60288 1.04725 6.71487C1.46517 6.00159 2.02115 5.43893 2.717 5.02588C3.41285 4.61283 4.16472 4.40234 4.97442 4.38887C5.41746 4.38887 5.99845 4.52591 6.72044 4.79525C7.4404 5.06549 7.90268 5.20253 8.10535 5.20253C8.25688 5.20253 8.77042 5.04229 9.641 4.72282C10.4643 4.42656 11.1591 4.30388 11.7283 4.35221C13.2708 4.47669 14.4296 5.08472 15.2002 6.18016C13.8208 7.016 13.1384 8.1867 13.152 9.68851C13.1644 10.8583 13.5888 11.8318 14.4228 12.6047C14.8008 12.9634 15.2229 13.2407 15.6925 13.4376C15.5907 13.7329 15.4832 14.0158 15.3689 14.2874V14.2874ZM11.8313 0.366977C11.8313 1.28385 11.4963 2.13994 10.8287 2.93232C10.0229 3.87431 9.04836 4.41863 7.99151 4.33274C7.97804 4.22274 7.97023 4.10698 7.97023 3.98532C7.97023 3.10512 8.35341 2.16314 9.03387 1.39293C9.37359 1.00297 9.80566 0.678713 10.3296 0.420051C10.8524 0.165248 11.347 0.0243365 11.8121 0.000205994C11.8257 0.122778 11.8313 0.245358 11.8313 0.366965V0.366977Z"
+                  fill="white"
+                />
+              </svg>
+              <span>Download App</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="partner-section">
+        <div class="slider flex items-center z-40">
+          <div
+            class="absolute right-0 top-0 lg:w-[255px] w-[60px] h-full z-40 bg-gradient-to-r from-transparent via-white to-white"
+          ></div>
+          <div
+            class="absolute left-0 top-0 lg:w-[255px] w-[60px] h-full z-40 bg-gradient-to-l from-transparent via-white to-white"
+          ></div>
+          <div class="slide-track">
+            <div class="slide flex items-center">
+              <img
+                class="lg:w-[110px] md:w-[70px] md:h-[70px] w-[60px] h-[60px] object-contain"
+                src="/upwork.png"
+                alt="logo upwork"
+              />
+            </div>
+            <div class="slide flex items-center">
+              <img
+                class="lg:w-[110px] md:w-[70px] md:h-[70px] w-[60px] h-[60px] object-contain"
+                src="/slack.png"
+                alt="logo slack"
+              />
+            </div>
+            <div class="slide flex items-center">
+              <img
+                class="lg:w-[110px] md:w-[70px] md:h-[70px] w-[60px] h-[60px] object-contain"
+                src="/figma.png"
+                alt="logo figma"
+              />
+            </div>
+            <div class="slide flex items-center">
+              <img
+                class="lg:w-[110px] md:w-[70px] md:h-[70px] w-[60px] h-[60px] object-contain"
+                src="/miro.png"
+                alt="logo miro"
+              />
+            </div>
+            <div class="slide flex items-center">
+              <img
+                class="lg:w-[110px] md:w-[70px] md:h-[70px] w-[60px] h-[60px] object-contain"
+                src="/canva.png"
+                alt="logo canva"
+              />
+            </div>
+            <div class="slide flex items-center">
+              <img
+                class="lg:w-[110px] md:w-[70px] md:h-[70px] w-[60px] h-[60px] object-contain"
+                src="/dribble.png"
+                alt="logo dribble"
+              />
+            </div>
+            <div class="slide flex items-center">
+              <img
+                class="lg:w-[110px] md:w-[70px] md:h-[70px] w-[60px] h-[60px] object-contain"
+                src="/github.png"
+                alt="logo github"
+              />
+            </div>
+            <div class="slide flex items-center">
+              <img
+                class="lg:w-[110px] md:w-[70px] md:h-[70px] w-[60px] h-[60px] object-contain"
+                src="/upwork.png"
+                alt="logo upwork"
+              />
+            </div>
+            <div class="slide flex items-center">
+              <img
+                class="lg:w-[110px] md:w-[70px] md:h-[70px] w-[60px] h-[60px] object-contain"
+                src="/slack.png"
+                alt="logo slack"
+              />
+            </div>
+            <div class="slide flex items-center">
+              <img
+                class="lg:w-[110px] md:w-[70px] md:h-[70px] w-[60px] h-[60px] object-contain"
+                src="/figma.png"
+                alt="logo figma"
+              />
+            </div>
+            <div class="slide flex items-center">
+              <img
+                class="lg:w-[110px] md:w-[70px] md:h-[70px] w-[60px] h-[60px] object-contain"
+                src="/miro.png"
+                alt="logo miro"
+              />
+            </div>
+            <div class="slide flex items-center">
+              <img
+                class="lg:w-[110px] md:w-[70px] md:h-[70px] w-[60px] h-[60px] object-contain"
+                src="/canva.png"
+                alt="logo canva"
+              />
+            </div>
+            <div class="slide flex items-center">
+              <img
+                class="lg:w-[110px] md:w-[70px] md:h-[70px] w-[60px] h-[60px] object-contain"
+                src="/dribble.png"
+                alt="logo dribble"
+              />
+            </div>
+            <div class="slide flex items-center">
+              <img
+                class="lg:w-[110px] md:w-[70px] md:h-[70px] w-[60px] h-[60px] object-contain"
+                src="/github.png"
+                alt="logo github"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-approach-design approachDesign paddingSection">
+        <div
+          class="container flex md:flex-row flex-col md:items-end md:justify-between max-lg:gap-6"
+        >
+          <div class="flex flex-col gap-5 md:max-w-[56%]">
+            <div class="label-section headSection">• Features</div>
+            <h2 class="title-section headSection">
+              Our Approach to Design and AI
+            </h2>
+            <p class="text-primaryGrey headSection">
+              Revolutionizing your experience with innovative features that
+              blend intelligent AI and user-centric design, empowering you to
+              achieve more effortlessly
+            </p>
+          </div>
+          <div class="slider-controlApproach flex items-center gap-4">
+            <button
+              class="p-[14px] rounded-full border border-[#C7CAD1] prev-slider !ring-0"
+            >
+              <svg
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M3.54199 10.8503L16.042 10.8503"
+                  stroke="#050810"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M8.58301 15.8707L3.54134 10.8507L8.58301 5.82983"
+                  stroke="#050810"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              class="p-[14px] rounded-full border border-[#C7CAD1] next-slider !ring-0"
+            >
+              <svg
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16.458 10.3934H3.95801"
+                  stroke="#050810"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M11.417 5.37299L16.4587 10.393L11.417 15.4138"
+                  stroke="#050810"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="swiper sliderApproach mt-10 container max-lg:!px-[1rem]">
+          <ul class="swiper-wrapper">
+            <li
+              class="swiper-slide flex flex-col border border-tertiaryGrey rounded-[24px] overflow-hidden"
+            >
+              <div class="p-6 flex flex-col md:gap-4 gap-3">
+                <div
+                  class="p-[15px] border border-tertiaryGrey rounded-[16px] w-fit h-fit"
+                >
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.2496 20.6666C13.1305 20.2052 12.89 19.7841 12.5531 19.4471C12.2161 19.1101 11.795 18.8696 11.3336 18.7506L3.15358 16.6413C3.01402 16.6016 2.89119 16.5176 2.80373 16.4019C2.71627 16.2861 2.66895 16.145 2.66895 15.9999C2.66895 15.8549 2.71627 15.7137 2.80373 15.598C2.89119 15.4823 3.01402 15.3982 3.15358 15.3586L11.3336 13.2479C11.7948 13.129 12.2158 12.8887 12.5528 12.552C12.8897 12.2153 13.1303 11.7944 13.2496 11.3333L15.3589 3.15326C15.3981 3.01315 15.4821 2.88971 15.598 2.80178C15.7139 2.71386 15.8554 2.66626 16.0009 2.66626C16.1464 2.66626 16.2879 2.71386 16.4038 2.80178C16.5197 2.88971 16.6037 3.01315 16.6429 3.15326L18.7509 11.3333C18.8699 11.7947 19.1105 12.2158 19.4474 12.5527C19.7844 12.8897 20.2055 13.1302 20.6669 13.2493L28.8469 15.3573C28.9876 15.3961 29.1116 15.4799 29.2 15.596C29.2884 15.7121 29.3363 15.854 29.3363 15.9999C29.3363 16.1458 29.2884 16.2877 29.2 16.4038C29.1116 16.5199 28.9876 16.6038 28.8469 16.6426L20.6669 18.7506C20.2055 18.8696 19.7844 19.1101 19.4474 19.4471C19.1105 19.7841 18.8699 20.2052 18.7509 20.6666L16.6416 28.8466C16.6024 28.9867 16.5184 29.1101 16.4025 29.1981C16.2866 29.286 16.1451 29.3336 15.9996 29.3336C15.8541 29.3336 15.7126 29.286 15.5967 29.1981C15.4808 29.1101 15.3968 28.9867 15.3576 28.8466L13.2496 20.6666Z"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M26.667 4V9.33333"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M29.3333 6.66675H24"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M5.33301 22.6667V25.3334"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M6.66667 24H4"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <h3 class="lg:text-[24px] font-medium text-darkBlack">
+                  AI health scanner for our body
+                </h3>
+                <p class="text-primaryGrey">
+                  Advanced tools to monitor and analyze your health effortlessly
+                </p>
+              </div>
+              <figure class="w-full">
+                <img
+                  class="lg:max-w-[386px] max-w-[300px] max-h-[381px] h-full w-full"
+                  src="/phone-1.png"
+                  alt="illustration apps"
+                />
+              </figure>
+            </li>
+            <li
+              class="swiper-slide flex flex-col border border-tertiaryGrey rounded-[24px] overflow-hidden"
+            >
+              <div class="p-6 flex flex-col md:gap-4 gap-3">
+                <div
+                  class="p-[15px] border border-tertiaryGrey rounded-[16px] w-fit h-fit"
+                >
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.2496 20.6666C13.1305 20.2052 12.89 19.7841 12.5531 19.4471C12.2161 19.1101 11.795 18.8696 11.3336 18.7506L3.15358 16.6413C3.01402 16.6016 2.89119 16.5176 2.80373 16.4019C2.71627 16.2861 2.66895 16.145 2.66895 15.9999C2.66895 15.8549 2.71627 15.7137 2.80373 15.598C2.89119 15.4823 3.01402 15.3982 3.15358 15.3586L11.3336 13.2479C11.7948 13.129 12.2158 12.8887 12.5528 12.552C12.8897 12.2153 13.1303 11.7944 13.2496 11.3333L15.3589 3.15326C15.3981 3.01315 15.4821 2.88971 15.598 2.80178C15.7139 2.71386 15.8554 2.66626 16.0009 2.66626C16.1464 2.66626 16.2879 2.71386 16.4038 2.80178C16.5197 2.88971 16.6037 3.01315 16.6429 3.15326L18.7509 11.3333C18.8699 11.7947 19.1105 12.2158 19.4474 12.5527C19.7844 12.8897 20.2055 13.1302 20.6669 13.2493L28.8469 15.3573C28.9876 15.3961 29.1116 15.4799 29.2 15.596C29.2884 15.7121 29.3363 15.854 29.3363 15.9999C29.3363 16.1458 29.2884 16.2877 29.2 16.4038C29.1116 16.5199 28.9876 16.6038 28.8469 16.6426L20.6669 18.7506C20.2055 18.8696 19.7844 19.1101 19.4474 19.4471C19.1105 19.7841 18.8699 20.2052 18.7509 20.6666L16.6416 28.8466C16.6024 28.9867 16.5184 29.1101 16.4025 29.1981C16.2866 29.286 16.1451 29.3336 15.9996 29.3336C15.8541 29.3336 15.7126 29.286 15.5967 29.1981C15.4808 29.1101 15.3968 28.9867 15.3576 28.8466L13.2496 20.6666Z"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M26.667 4V9.33333"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M29.3333 6.66675H24"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M5.33301 22.6667V25.3334"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M6.66667 24H4"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <h3 class="lg:text-[24px] font-medium text-darkBlack">
+                  Consultation with best Doctor
+                </h3>
+                <p class="text-primaryGrey">
+                  Receive expert advice anytime, enhanced by AI for accurate and
+                  personalized healthcare
+                </p>
+              </div>
+              <figure class="w-full flex justify-center">
+                <img
+                  class="lg:max-w-[386px] max-w-[300px] max-h-[381px] h-full w-full"
+                  src="/phone-2.png"
+                  alt="illustration apps"
+                />
+              </figure>
+            </li>
+            <li
+              class="swiper-slide flex flex-col border border-tertiaryGrey rounded-[24px] overflow-hidden"
+            >
+              <div class="p-6 flex flex-col md:gap-4 gap-3">
+                <div
+                  class="p-[15px] border border-tertiaryGrey rounded-[16px] w-fit h-fit"
+                >
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.2496 20.6666C13.1305 20.2052 12.89 19.7841 12.5531 19.4471C12.2161 19.1101 11.795 18.8696 11.3336 18.7506L3.15358 16.6413C3.01402 16.6016 2.89119 16.5176 2.80373 16.4019C2.71627 16.2861 2.66895 16.145 2.66895 15.9999C2.66895 15.8549 2.71627 15.7137 2.80373 15.598C2.89119 15.4823 3.01402 15.3982 3.15358 15.3586L11.3336 13.2479C11.7948 13.129 12.2158 12.8887 12.5528 12.552C12.8897 12.2153 13.1303 11.7944 13.2496 11.3333L15.3589 3.15326C15.3981 3.01315 15.4821 2.88971 15.598 2.80178C15.7139 2.71386 15.8554 2.66626 16.0009 2.66626C16.1464 2.66626 16.2879 2.71386 16.4038 2.80178C16.5197 2.88971 16.6037 3.01315 16.6429 3.15326L18.7509 11.3333C18.8699 11.7947 19.1105 12.2158 19.4474 12.5527C19.7844 12.8897 20.2055 13.1302 20.6669 13.2493L28.8469 15.3573C28.9876 15.3961 29.1116 15.4799 29.2 15.596C29.2884 15.7121 29.3363 15.854 29.3363 15.9999C29.3363 16.1458 29.2884 16.2877 29.2 16.4038C29.1116 16.5199 28.9876 16.6038 28.8469 16.6426L20.6669 18.7506C20.2055 18.8696 19.7844 19.1101 19.4474 19.4471C19.1105 19.7841 18.8699 20.2052 18.7509 20.6666L16.6416 28.8466C16.6024 28.9867 16.5184 29.1101 16.4025 29.1981C16.2866 29.286 16.1451 29.3336 15.9996 29.3336C15.8541 29.3336 15.7126 29.286 15.5967 29.1981C15.4808 29.1101 15.3968 28.9867 15.3576 28.8466L13.2496 20.6666Z"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M26.667 4V9.33333"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M29.3333 6.66675H24"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M5.33301 22.6667V25.3334"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M6.66667 24H4"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <h3 class="lg:text-[24px] font-medium text-darkBlack">
+                  Daily Tracking Health
+                </h3>
+                <p class="text-primaryGrey">
+                  Keep track of your well-being every day with smart insights
+                </p>
+              </div>
+              <figure class="w-full">
+                <img
+                  class="lg:max-w-[386px] max-w-[300px] max-h-[381px] h-full w-full"
+                  src="/phone-3.png"
+                  alt="illustration apps"
+                />
+              </figure>
+            </li>
+            <li
+              class="swiper-slide flex flex-col border border-tertiaryGrey rounded-[24px] overflow-hidden"
+            >
+              <div class="p-6 flex flex-col md:gap-4 gap-3">
+                <div
+                  class="p-[15px] border border-tertiaryGrey rounded-[16px] w-fit h-fit"
+                >
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 32 32"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M13.2496 20.6666C13.1305 20.2052 12.89 19.7841 12.5531 19.4471C12.2161 19.1101 11.795 18.8696 11.3336 18.7506L3.15358 16.6413C3.01402 16.6016 2.89119 16.5176 2.80373 16.4019C2.71627 16.2861 2.66895 16.145 2.66895 15.9999C2.66895 15.8549 2.71627 15.7137 2.80373 15.598C2.89119 15.4823 3.01402 15.3982 3.15358 15.3586L11.3336 13.2479C11.7948 13.129 12.2158 12.8887 12.5528 12.552C12.8897 12.2153 13.1303 11.7944 13.2496 11.3333L15.3589 3.15326C15.3981 3.01315 15.4821 2.88971 15.598 2.80178C15.7139 2.71386 15.8554 2.66626 16.0009 2.66626C16.1464 2.66626 16.2879 2.71386 16.4038 2.80178C16.5197 2.88971 16.6037 3.01315 16.6429 3.15326L18.7509 11.3333C18.8699 11.7947 19.1105 12.2158 19.4474 12.5527C19.7844 12.8897 20.2055 13.1302 20.6669 13.2493L28.8469 15.3573C28.9876 15.3961 29.1116 15.4799 29.2 15.596C29.2884 15.7121 29.3363 15.854 29.3363 15.9999C29.3363 16.1458 29.2884 16.2877 29.2 16.4038C29.1116 16.5199 28.9876 16.6038 28.8469 16.6426L20.6669 18.7506C20.2055 18.8696 19.7844 19.1101 19.4474 19.4471C19.1105 19.7841 18.8699 20.2052 18.7509 20.6666L16.6416 28.8466C16.6024 28.9867 16.5184 29.1101 16.4025 29.1981C16.2866 29.286 16.1451 29.3336 15.9996 29.3336C15.8541 29.3336 15.7126 29.286 15.5967 29.1981C15.4808 29.1101 15.3968 28.9867 15.3576 28.8466L13.2496 20.6666Z"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M26.667 4V9.33333"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M29.3333 6.66675H24"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M5.33301 22.6667V25.3334"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M6.66667 24H4"
+                      stroke="#050810"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <h3 class="lg:text-[24px] font-medium text-darkBlack">
+                  Consultation with best Doctor
+                </h3>
+                <p class="text-primaryGrey">
+                  Receive expert advice anytime, enhanced by AI for accurate and
+                  personalized healthcare
+                </p>
+              </div>
+              <figure class="w-full flex justify-center">
+                <img
+                  class="lg:max-w-[386px] max-w-[300px] lg:max-h-[381px] max-h-[295px] h-full w-full"
+                  src="/phone-4.png"
+                  alt="illustration apps"
+                />
+              </figure>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section
+        class="md:h-[1700px] section-introducing overflow-visible z-[100] paddingSection"
+      >
+        <div
+          class="sticky top-20 container mx-auto flex flex-col items-center gap-10"
+        >
+          <figure
+            class="flex w-[300px] h-[300px] justify-center image-logoOrnament opacity-0"
+          >
+            <img class="" src="/ornament-logo.png" alt="ornament logo" />
+          </figure>
+          <div class="flex flex-col gap-5 items-center">
+            <h2 class="title-section text-center md:max-w-[88%] titleAnimate">
+              We create innovative solutions that transform the healthcare
+              industry.
+            </h2>
+            <p class="text-primaryGrey text-center md:max-w-[88%] titleAnimate">
+              By combining cutting-edge technology and expert insights, we
+              deliver smarter, more efficient healthcare solutions that
+              prioritize your well-being
+            </p>
+          </div>
+          <ul class="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
+            <li
+              class="rounded-[16px] overflow-hidden relative group cursor-pointer opacity-0 doctorCard"
+            >
+              <img src="/vinayak.png" alt="Doktor Vinayak" />
+              <div
+                class="absolute bottom-0 left-0 w-full h-full bg-[#FAFAFA] group-hover:h-[88px] duration-500 group-hover:bg-[#BC9BFD] px-4 py-5 flex flex-col"
+              >
+                <h3
+                  class="font-medium text-darkBlack group-hover:text-white duration-200"
+                >
+                  Dr. Vinayak Kamble
+                </h3>
+                <p
+                  class="text-primaryGrey group-hover:text-[#E3E5E8] duration-200"
+                >
+                  Founder HealthDoc
+                </p>
+                <p
+                  class="text-primaryGrey mt-auto group-hover:opacity-0 group-hover:h-0 overflow-hidden duration-200"
+                >
+                  Pediatrician Specialist
+                </p>
+              </div>
+            </li>
+            <li
+              class="rounded-[16px] overflow-hidden relative group cursor-pointer opacity-0 doctorCard"
+            >
+              <img src="/cameron.png" alt="Doktor Vinayak" />
+              <div
+                class="absolute bottom-0 left-0 w-full h-full bg-[#FAFAFA] group-hover:h-[88px] duration-500 group-hover:bg-[#BC9BFD] px-4 py-5 flex flex-col"
+              >
+                <h3
+                  class="font-medium text-darkBlack group-hover:text-white duration-200"
+                >
+                  Dr. Cameron Desy
+                </h3>
+                <p
+                  class="text-primaryGrey group-hover:text-[#E3E5E8] duration-200"
+                >
+                  CEO HealthDoc
+                </p>
+                <p
+                  class="text-primaryGrey mt-auto group-hover:opacity-0 group-hover:h-0 overflow-hidden duration-200"
+                >
+                  Pediatrician Specialist
+                </p>
+              </div>
+            </li>
+            <li
+              class="rounded-[16px] overflow-hidden relative group cursor-pointer opacity-0 doctorCard"
+            >
+              <img src="/chelcia.png" alt="Doktor Vinayak" />
+              <div
+                class="absolute bottom-0 left-0 w-full h-full bg-[#FAFAFA] group-hover:h-[88px] duration-500 group-hover:bg-[#BC9BFD] px-4 py-5 flex flex-col"
+              >
+                <h3
+                  class="font-medium text-darkBlack group-hover:text-white duration-200"
+                >
+                  Dr. Chelcia
+                </h3>
+                <p
+                  class="text-primaryGrey group-hover:text-[#E3E5E8] duration-200"
+                >
+                  Co Founder HealthDoc
+                </p>
+                <p
+                  class="text-primaryGrey mt-auto group-hover:opacity-0 group-hover:h-0 overflow-hidden duration-200"
+                >
+                  Radiology Specialist
+                </p>
+              </div>
+            </li>
+            <li
+              class="rounded-[16px] overflow-hidden relative group cursor-pointer opacity-0 doctorCard"
+            >
+              <img src="/angelina.png" alt="Doktor Vinayak" />
+              <div
+                class="absolute bottom-0 left-0 w-full h-full bg-[#FAFAFA] group-hover:h-[88px] duration-500 group-hover:bg-[#BC9BFD] px-4 py-5 flex flex-col"
+              >
+                <h3
+                  class="font-medium text-darkBlack group-hover:text-white duration-200"
+                >
+                  Dr. Angelina Jol
+                </h3>
+                <p
+                  class="text-primaryGrey group-hover:text-[#E3E5E8] duration-200"
+                >
+                  CTO of HealtDoc
+                </p>
+                <p
+                  class="text-primaryGrey mt-auto group-hover:opacity-0 group-hover:h-0 overflow-hidden duration-200"
+                >
+                  Internist Specialist
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+    <footer
+      id="site-footer"
+      class="bg-darkBlack mx-[10px] rounded-[24px] pt-20 mb-[10px]"
+    >
+      <div class="container">
+        <ul
+          class="border-b border-primaryGrey pb-[60px] flex md:flex-row flex-col justify-between items-center max-lg:gap-10"
+        >
+          <li class="flex flex-col gap-5 lg:w-[39%]">
+            <h2 class="title-section text-white fade-up-footer footerContent">
+              Join Our News Letter
+            </h2>
+            <p class="text-primaryGrey fade-up-footer footerContent">
+              Up to date with everything
+            </p>
+          </li>
+          <li class="flex flex-col gap-4 lg:w-[45%] w-full">
+            <label class="text-white footerContent" for="">Subscribe</label>
+            <form
+              action=""
+              class="flex md:flex-row flex-col gap-3 items-center flex-grow footerContent"
+            >
+              <input
+                class="bg-transparent border border-primaryGrey md:py-[14px] py-[10px] px-[14px] rounded-full flex-grow text-white w-full"
+                type="email"
+                placeholder="Your email"
+              />
+              <button type="submit" class="button btn-primary max-lg:w-full">
+                <span>Subscribe</span>
+              </button>
+            </form>
+          </li>
+        </ul>
+        <div
+          class="md:pt-[60px] pt-[32px] flex md:flex-row flex-col justify-between items-center"
+        >
+          <div class="md:w-[27%] w-full h-full">
+            <ul class="flex flex-col gap-6">
+              <li class="flex gap-1 items-center footer-navigation">
+                <img src="/logo.png" alt="Logo HealthDoc" />
+                <h3 class="text-white text-[18px] font-bold">HealthDoc</h3>
+              </li>
+              <li class="text-primaryGrey footer-navigation">
+                Empowering your projects with innovative design and tailored
+                solutions that bring your ideas to life
+              </li>
+            </ul>
+            <ul class="flex items-center gap-6 pt-6 footer-nav-wrapper">
+              <li class="w-fit footer-navigation">
+                <a href="" class="p-2 rounded-full bg-[#3A3E45] flex">
+                  <svg
+                    width="18"
+                    height="17"
+                    viewBox="0 0 18 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9.0002 1.81494C11.2002 1.81494 11.5002 1.81494 12.4002 1.81494C13.2002 1.81494 13.6002 2.01494 13.9002 2.11494C14.3002 2.31494 14.6002 2.41494 14.9002 2.71494C15.2002 3.01494 15.4002 3.31494 15.5002 3.71494C15.6002 4.01494 15.7002 4.41494 15.8002 5.21494C15.8002 6.11494 15.8002 6.31494 15.8002 8.61494C15.8002 10.9149 15.8002 11.1149 15.8002 12.0149C15.8002 12.8149 15.6002 13.2149 15.5002 13.5149C15.3002 13.9149 15.2002 14.2149 14.9002 14.5149C14.6002 14.8149 14.3002 15.0149 13.9002 15.1149C13.6002 15.2149 13.2002 15.3149 12.4002 15.4149C11.5002 15.4149 11.3002 15.4149 9.0002 15.4149C6.7002 15.4149 6.5002 15.4149 5.6002 15.4149C4.8002 15.4149 4.4002 15.2149 4.1002 15.1149C3.7002 14.9149 3.4002 14.8149 3.1002 14.5149C2.8002 14.2149 2.6002 13.9149 2.5002 13.5149C2.4002 13.2149 2.3002 12.8149 2.2002 12.0149C2.2002 11.1149 2.2002 10.9149 2.2002 8.61494C2.2002 6.31494 2.2002 6.11494 2.2002 5.21494C2.2002 4.41494 2.4002 4.01494 2.5002 3.71494C2.7002 3.31494 2.8002 3.01494 3.1002 2.71494C3.4002 2.41494 3.7002 2.21494 4.1002 2.11494C4.4002 2.01494 4.8002 1.91494 5.6002 1.81494C6.5002 1.81494 6.8002 1.81494 9.0002 1.81494ZM9.0002 0.314941C6.7002 0.314941 6.5002 0.314941 5.6002 0.314941C4.7002 0.314941 4.1002 0.514942 3.6002 0.714942C3.1002 0.914942 2.6002 1.21494 2.1002 1.71494C1.6002 2.21494 1.4002 2.61494 1.1002 3.21494C0.900196 3.71494 0.800195 4.31494 0.700195 5.21494C0.700195 6.11494 0.700195 6.41494 0.700195 8.61494C0.700195 10.9149 0.700195 11.1149 0.700195 12.0149C0.700195 12.9149 0.900196 13.5149 1.1002 14.0149C1.3002 14.5149 1.6002 15.0149 2.1002 15.5149C2.6002 16.0149 3.0002 16.2149 3.6002 16.5149C4.1002 16.7149 4.7002 16.8149 5.6002 16.9149C6.5002 16.9149 6.8002 16.9149 9.0002 16.9149C11.2002 16.9149 11.5002 16.9149 12.4002 16.9149C13.3002 16.9149 13.9002 16.7149 14.4002 16.5149C14.9002 16.3149 15.4002 16.0149 15.9002 15.5149C16.4002 15.0149 16.6002 14.6149 16.9002 14.0149C17.1002 13.5149 17.2002 12.9149 17.3002 12.0149C17.3002 11.1149 17.3002 10.8149 17.3002 8.61494C17.3002 6.41494 17.3002 6.11494 17.3002 5.21494C17.3002 4.31494 17.1002 3.71494 16.9002 3.21494C16.7002 2.71494 16.4002 2.21494 15.9002 1.71494C15.4002 1.21494 15.0002 1.01494 14.4002 0.714942C13.9002 0.514942 13.3002 0.414941 12.4002 0.314941C11.5002 0.314941 11.3002 0.314941 9.0002 0.314941Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M9.0002 4.31494C6.6002 4.31494 4.7002 6.21494 4.7002 8.61494C4.7002 11.0149 6.6002 12.9149 9.0002 12.9149C11.4002 12.9149 13.3002 11.0149 13.3002 8.61494C13.3002 6.21494 11.4002 4.31494 9.0002 4.31494ZM9.0002 11.4149C7.5002 11.4149 6.2002 10.2149 6.2002 8.61494C6.2002 7.11494 7.4002 5.81494 9.0002 5.81494C10.5002 5.81494 11.8002 7.01494 11.8002 8.61494C11.8002 10.1149 10.5002 11.4149 9.0002 11.4149Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M13.4002 5.21494C13.9525 5.21494 14.4002 4.76723 14.4002 4.21494C14.4002 3.66266 13.9525 3.21494 13.4002 3.21494C12.8479 3.21494 12.4002 3.66266 12.4002 4.21494C12.4002 4.76723 12.8479 5.21494 13.4002 5.21494Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li class="w-fit footer-navigation">
+                <a href="" class="p-2 rounded-full bg-[#3A3E45] flex">
+                  <svg
+                    width="16"
+                    height="17"
+                    viewBox="0 0 16 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M3.60001 16.6152H0.199997V5.91523H3.60001V16.6152ZM1.9 4.41523C0.800002 4.41523 0 3.61523 0 2.51523C0 1.41523 0.900002 0.615234 1.9 0.615234C3 0.615234 3.8 1.41523 3.8 2.51523C3.8 3.61523 3 4.41523 1.9 4.41523ZM16 16.6152H12.6V10.8152C12.6 9.11524 11.9 8.61523 10.9 8.61523C9.89999 8.61523 8.89999 9.41523 8.89999 10.9152V16.6152H5.5V5.91523H8.7V7.41523C9 6.71523 10.2 5.61523 11.9 5.61523C13.8 5.61523 15.8 6.71523 15.8 10.0152V16.6152H16Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li class="w-fit footer-navigation">
+                <a href="" class="p-2 rounded-full bg-[#3A3E45] flex">
+                  <svg
+                    width="14"
+                    height="17"
+                    viewBox="0 0 14 17"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5.552 7.32723C5.096 7.32723 4.736 7.72723 4.736 8.21523C4.736 8.70323 5.104 9.10323 5.552 9.10323C6.008 9.10323 6.368 8.70323 6.368 8.21523C6.376 7.72723 6.008 7.32723 5.552 7.32723ZM8.472 7.32723C8.016 7.32723 7.656 7.72723 7.656 8.21523C7.656 8.70323 8.024 9.10323 8.472 9.10323C8.928 9.10323 9.288 8.70323 9.288 8.21523C9.288 7.72723 8.928 7.32723 8.472 7.32723Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M12.36 0.615234H1.64C0.736 0.615234 0 1.35123 0 2.26323V13.0792C0 13.9912 0.736 14.7272 1.64 14.7272H10.712L10.288 13.2472L11.312 14.1992L12.28 15.0952L14 16.6152V2.26323C14 1.35123 13.264 0.615234 12.36 0.615234ZM9.272 11.0632C9.272 11.0632 8.984 10.7192 8.744 10.4152C9.792 10.1192 10.192 9.46323 10.192 9.46323C9.864 9.67923 9.552 9.83123 9.272 9.93523C8.872 10.1032 8.488 10.2152 8.112 10.2792C7.344 10.4232 6.64 10.3832 6.04 10.2712C5.584 10.1832 5.192 10.0552 4.864 9.92723C4.68 9.85523 4.48 9.76723 4.28 9.65523C4.256 9.63923 4.232 9.63123 4.208 9.61523C4.192 9.60723 4.184 9.59923 4.176 9.59123C4.032 9.51123 3.952 9.45523 3.952 9.45523C3.952 9.45523 4.336 10.0952 5.352 10.3992C5.112 10.7032 4.816 11.0632 4.816 11.0632C3.048 11.0072 2.376 9.84723 2.376 9.84723C2.376 7.27123 3.528 5.18323 3.528 5.18323C4.68 4.31923 5.776 4.34323 5.776 4.34323L5.856 4.43923C4.416 4.85523 3.752 5.48723 3.752 5.48723C3.752 5.48723 3.928 5.39123 4.224 5.25523C5.08 4.87923 5.76 4.77523 6.04 4.75123C6.088 4.74323 6.128 4.73523 6.176 4.73523C6.664 4.67123 7.216 4.65523 7.792 4.71923C8.552 4.80723 9.368 5.03123 10.2 5.48723C10.2 5.48723 9.568 4.88723 8.208 4.47123L8.32 4.34323C8.32 4.34323 9.416 4.31923 10.568 5.18323C10.568 5.18323 11.72 7.27123 11.72 9.84723C11.72 9.84723 11.04 11.0072 9.272 11.0632Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="lg:w-[46%] md:w-[60%] w-full h-full">
+            <ul class="flex items-center justify-between max-lg:flex-wrap">
+              <li class="group relative footer-navigation">
+                <a
+                  href="/about"
+                  class="text-primaryGrey group-hover:text-white duration-300"
+                  >About us</a
+                >
+                <div
+                  class="line absolute -bottom-[8px] w-0 group-hover:w-full duration-300 h-[2px] bg-white left-0"
+                ></div>
+              </li>
+              <li class="group relative footer-navigation">
+                <a
+                  href="/testimonial"
+                  class="text-primaryGrey group-hover:text-white duration-300"
+                  >Testimonial</a
+                >
+                <div
+                  class="line absolute -bottom-[8px] w-0 group-hover:w-full duration-300 h-[2px] bg-white left-0"
+                ></div>
+              </li>
+              <li class="group relative footer-navigation">
+                <a
+                  href="/blog"
+                  class="text-primaryGrey group-hover:text-white duration-300"
+                  >Blog</a
+                >
+                <div
+                  class="line absolute -bottom-[8px] w-0 group-hover:w-full duration-300 h-[2px] bg-white left-0"
+                ></div>
+              </li>
+              <li class="group relative footer-navigation">
+                <a
+                  href="/contact"
+                  class="text-primaryGrey group-hover:text-white duration-300"
+                  >Contact</a
+                >
+                <div
+                  class="line absolute -bottom-[8px] w-0 group-hover:w-full duration-300 h-[2px] bg-white left-0"
+                ></div>
+              </li>
+              <li class="group relative footer-navigation">
+                <a
+                  href="/download"
+                  class="text-primaryGrey group-hover:text-white duration-300"
+                  >Download</a
+                >
+                <div
+                  class="line absolute -bottom-[8px] w-0 group-hover:w-full duration-300 h-[2px] bg-white left-0"
+                ></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <ul class="py-4 container mx-auto md:mt-[60px] pt-8 flex items-center">
+        <li>
+          <a href="https://mangcoding.com/" class="text-primaryGrey text-sm"
+            >©Mangcoding2024</a
+          >
+        </li>
+        <li class="pr-4 border-r border-r-primaryGrey ml-auto">
+          <a href="https://mangcoding.com/" class="text-primaryGrey text-sm"
+            >Term of use</a
+          >
+        </li>
+        <li class="pl-4">
+          <a href="https://mangcoding.com/" class="text-primaryGrey text-sm"
+            >Privacy policy</a
+          >
+        </li>
+      </ul>
+    </footer>
+    <script type="module" src="./assets/main.js"></script>
+    <script type="module" src="./assets/home.js"></script>
+
+    <script src="https://unpkg.com/split-type"></script>
+  </body>
+</html>

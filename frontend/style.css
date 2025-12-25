@@ -1,0 +1,521 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Глобальные стили для прелоадера */
+body.preloading #site-header,
+body.preloading #site-main > *:not(.preload),
+body.preloading #site-footer {
+  opacity: 0;
+}
+
+#site-header,
+#site-main > *:not(.preload),
+#site-footer {
+  transition: opacity 0.3s ease-out;
+}
+
+@layer base {
+  html {
+    @apply font-primary;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  button,
+  a {
+    @apply font-primary;
+  }
+  form input:focus-visible,
+  form textarea:focus-visible {
+    @apply outline-none;
+
+  }
+}
+
+@layer components {
+  .button {
+    @apply flex gap-1 items-center rounded-full py-[10px] px-[32px];
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white relative;
+  }
+  .btn-primary > * {
+    @apply relative z-10;
+  }
+  .btn-primary:hover {
+    @apply outline outline-primary;
+  }
+  .btn-primary:hover > * {
+    @apply text-primary stroke-primary;
+  }
+
+  /* Icon circle styles */
+  .icon-circle circle {
+    transition: all 0.3s ease;
+  }
+  .btn-primary:hover .icon-circle circle {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+  }
+  .btn-primary::before {
+    @apply bg-white;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleY(0);
+    transform-origin: top center;
+    will-change: transform;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1;
+    border-radius: 999px;
+  }
+  .btn-primary:hover::before {
+    transform: unset;
+    transform-origin: bottom center;
+  }
+  .title-section {
+    @apply text-darkBlack lg:text-[64px] md:text-[48px] text-[32px] font-normal leading-[1];
+  }
+
+  .title-section span {
+    @apply text-primaryGrey font-normal lg:text-[16px];
+  }
+}
+
+@layer utilities {
+  .trigger {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    top: 50%;
+    border-radius: 10px;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+  .bars {
+    width: 40px;
+    cursor: pointer;
+  }
+
+  .bars .line {
+    fill: none;
+    stroke: #050810;
+    stroke-width: 4;
+    stroke-linecap: square;
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+  }
+
+  .bars .line.top {
+    stroke-dasharray: 40 172;
+  }
+
+  .bars .line.middle {
+    stroke-dasharray: 40 111;
+  }
+
+  .bars .line.bottom {
+    stroke-dasharray: 40 172;
+  }
+
+  .bars.active .top {
+    stroke-dashoffset: -132px;
+  }
+
+  .bars.active .middle {
+    stroke-dashoffset: -71px;
+  }
+
+  .bars.active .bottom {
+    stroke-dashoffset: -132px;
+  }
+  .mobileNav.active {
+    @apply left-0;
+  }
+  .mobileNav {
+    transition-timing-function: ease;
+  }
+
+  /* Partner Slider */
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 7));
+    }
+  }
+
+  .slider {
+    height: 100px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    &::after {
+      right: 0;
+      top: 0;
+      transform: rotateZ(180deg);
+    }
+
+    &::before {
+      left: 0;
+      top: 0;
+    }
+
+    .slide-track {
+      animation: scroll 40s linear infinite;
+      display: flex;
+      gap: 24px;
+      width: calc(250px * 14);
+    }
+
+    .slide {
+      @apply lg:w-[250px] lg:h-[128px] w-[120px] h-[85px];
+    }
+  }
+
+  .label-section {
+    @apply text-[16px] border border-[#E3E5E8] rounded-full p-[5px] px-[10px] w-fit text-darkBlack;
+  }
+  header.scrolled {
+    @apply bg-white shadow-2xl;
+  }
+  header {
+    @apply duration-300;
+  }
+  header.scroll-down {
+    top: -100px;
+  }
+  .sliderApproach .swiper-slide {
+    display: flex !important;
+  }
+}
+
+/* Fix preloader blocking clicks */
+.preload {
+  pointer-events: auto;
+}
+
+.preload[style*="display: none"] {
+  pointer-events: none !important;
+}
+.titleHero {
+  display: block;
+}
+
+.line-wrapper {
+  overflow: hidden;
+}
+header.scrolled {
+  @apply bg-white;
+}
+
+.circle {
+  clip-path: circle(50% at 50% 50%);
+}
+
+.aboutHeader label,
+.aboutHeader h1,
+.aboutHeader p {
+  visibility: hidden; /* Sembunyikan sebelum GSAP mengontrol */
+}
+
+.contact img {
+  width: 36px;
+  height: 36px;
+  max-width: unset;
+  place-self: center;
+}
+
+.line {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+section {
+  overflow: hidden;
+}
+
+/* Spinning Numbers Animation for Preloader */
+.spinning-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 1s ease-in;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.spinning-number {
+  position: relative;
+  font-size: 0.5em;
+}
+
+.spinning-number .wheel {
+  animation: spinning-number-spin var(--t) linear infinite var(--r1);
+}
+
+@keyframes spinning-number-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinning-number .number {
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(var(--a))
+    translateY(calc(var(--l) * -1)) scale(var(--s));
+}
+
+.spinning-number .number::before {
+  content: "1";
+  --z: 1.9;
+  --r: normal;
+  transform: translate(-50%, -50%);
+  animation: spinning-number-changing calc(var(--t) * var(--z))
+    calc(-1 * var(--z) * var(--t) * var(--i) / var(--m) - 60s) linear infinite
+    var(--r);
+}
+
+@keyframes spinning-number-changing {
+  0% {
+    content: "1";
+  }
+  to {
+    content: "0";
+  }
+}
+
+/* Logo Animation */
+.logo-text {
+  z-index: 5;
+  pointer-events: none;
+  color: #6B7280 !important; /* Серый цвет для всего текста */
+}
+
+.logo-text span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px) scale(0.8);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Появление букв */
+.logo-text.show span {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.logo-text .logo-part.left {
+  transition-delay: 0.1s;
+}
+
+.logo-text .letter-o {
+  color: #6B7280 !important; /* Серый цвет для буквы O */
+  transition-delay: 0.3s;
+}
+
+.logo-text .logo-part.right {
+  transition-delay: 0.5s;
+}
+
+/* Уход букв вверх по частям */
+.logo-text.hide span {
+  transform: translateY(-200vh);
+  transition: transform 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.logo-text.hide .logo-part.left {
+  transition-delay: 0s;
+}
+
+.logo-text.hide .letter-o {
+  transition-delay: 0.1s;
+}
+
+.logo-text.hide .logo-part.right {
+  transition-delay: 0.2s;
+}
+
+
+/* Photo Gallery Styles */
+.w {
+  width: 50vmin;
+  height: 80vmin;
+  margin: 0 auto;
+}
+
+.ts {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  --barH: 10%;
+  perspective: 100px;
+  perspective-origin: center center;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.ts:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 15px;
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(transparent 20%, rgba(0, 0, 0, 0.1));
+  transform: rotateX(90deg) scaleX(1.2);
+  transform-origin: bottom center;
+}
+
+.t {
+  --w: 20%;
+  display: block;
+  width: var(--w);
+  height: var(--barH);
+  position: absolute;
+  bottom: 0;
+  left: var(--l);
+  transform-origin: top left;
+  transition: transform 0.5s, bottom 0.6s, left 0.6s, width 0.3s, box-shadow 1s;
+}
+
+.t:hover,
+:checked + .t {
+  transition: transform 0.5s, bottom 0.6s, left 0.6s, width 0.3s, box-shadow 0s;
+}
+
+.t img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(0.8);
+}
+
+[type="radio"] {
+  display: none;
+}
+
+:checked + label.t {
+  left: 0;
+  bottom: var(--barH);
+  height: calc(100% - var(--barH));
+  box-shadow: 0 0 0 transparent;
+  animation: anim 2s 1;
+}
+
+@keyframes anim {
+  from {
+    transform: rotateY(6deg) rotateX(3deg);
+  }
+}
+
+:checked + label.t img {
+  object-fit: contain;
+}
+
+:not(:checked) + .t {
+  transform: translate3d(0, 0, -5px);
+  pointer-events: auto;
+}
+
+:not(:checked) + .t:hover {
+  transform: translate3d(0, -7px, -5px);
+  box-shadow: 0 30px 30px -25px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+:not(:checked) + .t img {
+  transform: scale(0.9);
+}
+
+/* QR Code Animation Effect - From Uiverse.io by Saad3092003 */
+.qr-animated-container {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  background-color: rgb(15, 15, 15);
+  transform-style: preserve-3d;
+  animation: qr-rotation 2s infinite ease;
+  border-radius: 20px;
+  box-shadow: 0 0 50px 0px, inset 0 0 90px 0px;
+  color: white;
+  transition: 1.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 25px;
+}
+
+.qr-animated-container .qr-animated-inner {
+  opacity: 1;
+  transition: all 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(230, 230, 230);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.qr-animated-container .qr-code-svg {
+  width: 100%;
+  height: 100%;
+  color: rgb(80, 80, 80);
+}
+
+.qr-animated-container:hover .qr-animated-inner {
+  scale: 1.2;
+  opacity: 0.7;
+}
+
+.qr-animated-container:hover {
+  box-shadow: 0 0 30px 100px black, inset 5px 5px 5px 0px rgb(31, 31, 31);
+}
+
+@keyframes qr-rotation {
+  0% {
+    transform: rotateX(-15deg) translateY(0px);
+  }
+
+  50% {
+    transform: rotateX(-15deg) translateY(-10px);
+  }
+
+  100% {
+    transform: rotateX(-15deg) translateY(0px);
+  }
+}
+
+/* Responsive sizing for QR code */
+@media (max-width: 768px) {
+  .qr-animated-container {
+    width: 200px;
+    height: 200px;
+    padding: 20px;
+  }
+
+  .qr-animated-container .qr-animated-inner {
+    padding: 15px;
+  }
+}

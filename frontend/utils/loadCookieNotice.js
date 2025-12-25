@@ -13,14 +13,23 @@ async function loadCookieNotice() {
   try {
     // Загружаем HTML компонента
     const response = await fetch('/components/cookie-notice.html');
+
+    if (!response.ok) {
+      console.error('Не удалось загрузить cookie-notice.html:', response.status);
+      return;
+    }
+
     const html = await response.text();
 
     // Создаем временный элемент для парсинга HTML
     const temp = document.createElement('div');
     temp.innerHTML = html;
 
-    // Добавляем в body
-    document.body.appendChild(temp.firstElementChild);
+    const cookieElement = temp.firstElementChild;
+    if (!cookieElement) {
+      console.error('cookie-notice.html пустой или некорректный');
+      return;
+    }
 
     // Загружаем CSS
     const link = document.createElement('link');
@@ -28,8 +37,11 @@ async function loadCookieNotice() {
     link.href = '/components/cookie-notice.css';
     document.head.appendChild(link);
 
+    // Добавляем в body
+    document.body.appendChild(cookieElement);
+
     // Добавляем обработчики событий
-    setupCookieNoticeHandlers();
+    setupCookieNoticeHandlers(cookieElement);
 
   } catch (error) {
     console.error('Ошибка при загрузке уведомления о cookies:', error);
@@ -39,13 +51,18 @@ async function loadCookieNotice() {
 /**
  * Настраивает обработчики событий для кнопок уведомления о cookies
  */
-function setupCookieNoticeHandlers() {
-  const cookieNotice = document.getElementById('cookieNotice');
-  const acceptButton = document.getElementById('acceptCookies');
-  const declineButton = document.getElementById('declineCookies');
+function setupCookieNoticeHandlers(cookieNotice) {
+  console.log('Cookie element:', cookieNotice);
+  console.log('Cookie innerHTML:', cookieNotice.innerHTML);
 
-  if (!cookieNotice || !acceptButton || !declineButton) {
-    console.error('Не удалось найти элементы уведомления о cookies');
+  const acceptButton = cookieNotice.querySelector('#acceptCookies');
+  const declineButton = cookieNotice.querySelector('#declineCookies');
+
+  console.log('Accept button:', acceptButton);
+  console.log('Decline button:', declineButton);
+
+  if (!acceptButton || !declineButton) {
+    console.error('Не удалось найти кнопки уведомления о cookies');
     return;
   }
 

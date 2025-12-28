@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redirect</title>
+    <script>
+      const path = window.location.pathname;
+      const base = '/amemory_project/';
+      if (path !== base && !path.startsWith(base + '#')) {
+        window.location.href = base + '#' + path.slice(base.length);
+      }
+    </script>
+  </head>
+  <body>
+    <p>Redirecting to main page...</p>
+  </body>
+</html>

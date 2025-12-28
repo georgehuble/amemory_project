@@ -10,7 +10,7 @@ export default defineConfig({
     open: true // автоматически открывает браузер при запуске dev сервера
   },
   build: {
-    outDir: 'dist',
+    outDir: 'docs',
     emptyOutDir: true,
     // Оптимизация для GitHub Pages
     rollupOptions: {

@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/blog", "destination": "/blog.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/dashboard", "destination": "/dashboard.html" },
+    { "source": "/login", "destination": "/login.html" },
+    { "source": "/registration", "destination": "/registration.html" },
+    { "source": "/single", "destination": "/single.html" },
+    { "source": "/testimonial", "destination": "/testimonial.html" },
+    { "source": "/forgot-password", "destination": "/forgot-password.html" },
+    { "source": "/reset-password", "destination": "/reset-password.html" },
+    { "source": "/verify-code", "destination": "/verify-code.html" },
+    { "source": "/spinning-wheels-full", "destination": "/spinning-wheels-full.html" }
+  ]
+}

@@ -50,7 +50,7 @@ heroSection.to(
 heroSection.to(
   ".ornamentLogoSpin",
   {
-    top: "20px",
+    top: isMobile ? "40px" : "90px",
     opacity: 1,
     duration: 1,
     ease: "power3.inOut",
@@ -60,7 +60,7 @@ heroSection.to(
 heroSection.to(
   ".ornamentPlusTitle",
   {
-    bottom: "-32px",
+    bottom: "-52px",
     opacity: 1,
     duration: 1,
     ease: "power3.inOut",
@@ -83,6 +83,7 @@ heroSection.to(
     opacity: 1,
     duration: 0.5,
     ease: "power3.inOut",
+    delay: 1.5,
   },
   ">"
 );
